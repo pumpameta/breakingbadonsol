@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>$BB - Breaking Bad | The Transformation Begins</title>
+    <meta name="description" content="From Mr. White to Heisenberg. A 30-year educator enters the game. Head shave at $1M market cap.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --green-primary: #00C853;
+            --green-dark: #009624;
+            --green-glow: rgba(0, 200, 83, 0.4);
+            --yellow-meth: #F9DC5C;
+            --black-bg: #0a0a0a;
+            --dark-gray: #1a1a1a;
+            --text-white: #f5f5f5;
+            --text-muted: rgba(255,255,255,0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: var(--black-bg);
+            color: var(--text-white);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Floating "Cooking" Background */
+        .cooking-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .cooking-text {
+            position: absolute;
+            font-family: 'Oswald', sans-serif;
+            font-size: 120px;
+            font-weight: 700;
+            color: rgba(0, 200, 83, 0.03);
+            white-space: nowrap;
+            animation: float-cooking 30s linear infinite;
+            text-transform: uppercase;
+            letter-spacing: 20px;
+        }
+
+        .cooking-text:nth-child(1) { top: 5%; animation-delay: 0s; }
+        .cooking-text:nth-child(2) { top: 25%; animation-delay: -8s; }
+        .cooking-text:nth-child(3) { top: 45%; animation-delay: -16s; }
+        .cooking-text:nth-child(4) { top: 65%; animation-delay: -24s; }
+        .cooking-text:nth-child(5) { top: 85%; animation-delay: -12s; }
+
+        @keyframes float-cooking {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-200%); }
+        }
+
+        /* Chemical formula floating elements */
+        .formula-float {
+            position: absolute;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: rgba(0, 200, 83, 0.08);
+            animation: formula-drift 20s ease-in-out infinite;
+        }
+
+        @keyframes formula-drift {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.08; }
+            50% { transform: translateY(-30px) rotate(5deg); opacity: 0.15; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.95) 0%, transparent 100%);
+        }
+
+        .nav-logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--green-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-logo .element-box {
+            background: var(--green-primary);
+            color: var(--black-bg);
+            padding: 4px 8px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center top, rgba(0, 200, 83, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .periodic-element {
+            width: 180px;
+            height: 180px;
+            border: 3px solid var(--green-primary);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 40px;
+            position: relative;
+            background: rgba(0, 200, 83, 0.05);
+            box-shadow: 0 0 60px var(--green-glow), inset 0 0 30px rgba(0, 200, 83, 0.1);
+            animation: element-pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes element-pulse {
+            0%, 100% { box-shadow: 0 0 60px var(--green-glow), inset 0 0 30px rgba(0, 200, 83, 0.1); }
+            50% { box-shadow: 0 0 80px var(--green-glow), inset 0 0 40px rgba(0, 200, 83, 0.15); }
+        }
+
+        .periodic-element .atomic-number {
+            position: absolute;
+            top: 10px;
+            left: 12px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            color: var(--green-primary);
+        }
+
+        .periodic-element .symbol {
+            font-family: 'Oswald', sans-serif;
+            font-size: 80px;
+            font-weight: 700;
+            color: var(--green-primary);
+            line-height: 1;
+        }
+
+        .periodic-element .name {
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 14px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: var(--green-primary);
+        }
+
+        .hero-tagline {
+            font-size: 20px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .hero-quote {
+            font-style: italic;
+            font-size: 18px;
+            color: var(--yellow-meth);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        /* CA Box */
+        .ca-box {
+            background: var(--dark-gray);
+            border: 1px solid rgba(0, 200, 83, 0.3);
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 30px;
+        }
+
+        .ca-box:hover {
+            border-color: var(--green-primary);
+            box-shadow: 0 0 20px var(--green-glow);
+        }
+
+        .ca-box .label {
+            color: var(--green-primary);
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+        }
+
+        .ca-box .ca-address {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: var(--text-white);
+            letter-spacing: 1px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 35px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--green-primary);
+            color: var(--black-bg);
+        }
+
+        .btn-primary:hover {
+            background: var(--green-dark);
+            box-shadow: 0 0 30px var(--green-glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--green-primary);
+            color: var(--green-primary);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(0, 200, 83, 0.1);
+        }
+
+        /* Milestone Section */
+        .milestone {
+            padding: 100px 20px;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(to bottom, transparent, rgba(0, 200, 83, 0.03), transparent);
+        }
+
+        .milestone-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .section-title span {
+            color: var(--green-primary);
+        }
+
+        .milestone-box {
+            background: var(--dark-gray);
+            border: 2px solid var(--green-primary);
+            padding: 50px;
+            margin-top: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .milestone-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green-primary), var(--yellow-meth), var(--green-primary));
+        }
+
+        .milestone-target {
+            font-family: 'Oswald', sans-serif;
+            font-size: 72px;
+            font-weight: 700;
+            color: var(--green-primary);
+            text-shadow: 0 0 40px var(--green-glow);
+            margin-bottom: 20px;
+        }
+
+        .milestone-action {
+            font-size: 24px;
+            color: var(--yellow-meth);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .milestone-desc {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .transformation-arrow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .transform-stage {
+            text-align: center;
+        }
+
+        .transform-stage .label {
+            font-family: 'Oswald', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .transform-stage .name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .transform-stage.before .name {
+            color: var(--text-white);
+        }
+
+        .transform-stage.after .name {
+            color: var(--green-primary);
+            text-shadow: 0 0 20px var(--green-glow);
+        }
+
+        .arrow-icon {
+            font-size: 40px;
+            color: var(--yellow-meth);
+            animation: arrow-pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes arrow-pulse {
+            0%, 100% { transform: translateX(0); opacity: 1; }
+            50% { transform: translateX(10px); opacity: 0.7; }
+        }
+
+        /* Story Section */
+        .story {
+            padding: 100px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .story-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 50px;
+            align-items: center;
+        }
+
+        .story-content h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 28px;
+            color: var(--green-primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .story-content p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.8;
+        }
+
+        .story-content p strong {
+            color: var(--text-white);
+        }
+
+        .credentials-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .credential {
+            background: rgba(0, 200, 83, 0.1);
+            border: 1px solid rgba(0, 200, 83, 0.3);
+            padding: 8px 16px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--green-primary);
+        }
+
+        .story-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hazmat-icon {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--dark-gray) 0%, var(--black-bg) 100%);
+            border: 3px solid var(--green-primary);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 60px var(--green-glow);
+            position: relative;
+        }
+
+        .hazmat-icon::before {
+            content: '☢';
+            font-size: 80px;
+            color: var(--yellow-meth);
+            margin-bottom: 10px;
+        }
+
+        .hazmat-icon .text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            color: var(--text-white);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 20px;
+            background: var(--dark-gray);
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item .number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--green-primary);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .stat-item .label {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+
+        /* How to Buy */
+        .buy {
+            padding: 100px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .buy-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .buy-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .buy-step {
+            background: var(--dark-gray);
+            padding: 30px 20px;
+            border-top: 3px solid var(--green-primary);
+            transition: transform 0.3s;
+        }
+
+        .buy-step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: rgba(0, 200, 83, 0.2);
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
+        .buy-step h3 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            color: var(--green-primary);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .buy-step p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        .buy-step a {
+            color: var(--yellow-meth);
+            text-decoration: none;
+        }
+
+        .buy-step a:hover {
+            text-decoration: underline;
+        }
+
+        /* Community */
+        .community {
+            padding: 100px 20px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 200, 83, 0.05));
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: var(--dark-gray);
+            border: 1px solid rgba(0, 200, 83, 0.3);
+            color: var(--text-white);
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            border-color: var(--green-primary);
+            box-shadow: 0 0 20px var(--green-glow);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--green-primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 200, 83, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        footer .disclaimer {
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+            max-width: 700px;
+            margin: 20px auto 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .buy-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .cooking-text {
+                font-size: 80px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .periodic-element {
+                width: 140px;
+                height: 140px;
+            }
+
+            .periodic-element .symbol {
+                font-size: 60px;
+            }
+
+            .milestone-target {
+                font-size: 48px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .buy-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .transformation-arrow {
+                flex-direction: column;
+            }
+
+            .arrow-icon {
+                transform: rotate(90deg);
+            }
+
+            .cooking-text {
+                font-size: 50px;
+            }
+        }
+
+        /* Fade in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Cooking Background -->
+    <div class="cooking-bg">
+        <div class="cooking-text">COOKING COOKING COOKING COOKING</div>
+        <div class="cooking-text">COOKING COOKING COOKING COOKING</div>
+        <div class="cooking-text">COOKING COOKING COOKING COOKING</div>
+        <div class="cooking-text">COOKING COOKING COOKING COOKING</div>
+        <div class="cooking-text">COOKING COOKING COOKING COOKING</div>
+        
+        <!-- Chemical formulas floating -->
+        <span class="formula-float" style="top: 15%; left: 10%;">C₁₀H₁₅N</span>
+        <span class="formula-float" style="top: 35%; left: 85%; animation-delay: -5s;">99.1%</span>
+        <span class="formula-float" style="top: 55%; left: 5%; animation-delay: -10s;">PURE</span>
+        <span class="formula-float" style="top: 75%; left: 90%; animation-delay: -15s;">CH₃</span>
+        <span class="formula-float" style="top: 25%; left: 70%; animation-delay: -8s;">🧪</span>
+        <span class="formula-float" style="top: 65%; left: 25%; animation-delay: -12s;">⚗️</span>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="nav-logo">
+            <span class="element-box">Bb</span>
+            Breaking Bad
+        </a>
+        <ul class="nav-links">
+            <li><a href="#milestone">The Catalyst</a></li>
+            <li><a href="#story">The Cook</a></li>
+            <li><a href="#buy">How to Buy</a></li>
+            <li><a href="#community">Community</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="periodic-element">
+            <span class="atomic-number">56</span>
+            <span class="symbol">Bb</span>
+            <span class="name">Breaking Bad</span>
+        </div>
+
+        <h1>BREAKING <span>BAD</span></h1>
+        <p class="hero-tagline">$BB on Solana</p>
+        <p class="hero-quote">"I am not in danger, Skyler. I am the danger."</p>
+
+        <div class="ca-box" onclick="copyCA()">
+            <span class="label">CA:</span>
+            <span class="ca-address" id="contract-address">TBA - LAUNCHING SOON</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+        </div>
+
+        <div class="hero-buttons">
+            <a href="#buy" class="btn btn-primary">Cook With Us</a>
+            <a href="#milestone" class="btn btn-secondary">The Catalyst</a>
+        </div>
+    </section>
+
+    <!-- Milestone Section -->
+    <section class="milestone" id="milestone">
+        <div class="milestone-inner">
+            <h2 class="section-title">THE <span>CATALYST</span></h2>
+            <p style="color: var(--text-muted); font-size: 18px;">Every transformation needs a trigger. This is ours.</p>
+
+            <div class="milestone-box">
+                <div class="milestone-target">$1,000,000</div>
+                <div class="milestone-action">🪒 THE HEAD SHAVE 🪒</div>
+                <p class="milestone-desc">
+                    At $1M market cap, Walter shaves his head on stream. 
+                    The transformation completes. Mr. White becomes <strong style="color: var(--green-primary);">Heisenberg</strong>. 
+                    From that moment forward, the character takes over for the rest of the coin's journey.
+                </p>
+
+                <div class="transformation-arrow">
+                    <div class="transform-stage before">
+                        <div class="label">Before $1M</div>
+                        <div class="name">Mr. White</div>
+                    </div>
+                    <div class="arrow-icon">→</div>
+                    <div class="transform-stage after">
+                        <div class="label">After $1M</div>
+                        <div class="name">Heisenberg</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story" id="story">
+        <div class="story-inner">
+            <h2 class="section-title" style="text-align: center;">THE <span>COOK</span></h2>
+            <p style="text-align: center; color: var(--text-muted); font-size: 18px;">Meet Walter. Yes, that's his real name.</p>
+
+            <div class="story-grid">
+                <div class="story-content fade-in">
+                    <h3>30 Years in the System</h3>
+                    <p>
+                        <strong>Walter</strong> spent three decades in the classroom. Not just any classroom—<strong>Title I schools</strong>, 
+                        the ones most people write off. Low-income districts where success stories are rare and the system works against you.
+                    </p>
+                    <p>
+                        He taught PE and Health. Coached varsity basketball. But more than that, he invested in kids nobody else believed in. 
+                        He created <strong>free summer camps</strong> for underprivileged youth. Bought "COLLEGE" shirts for students. 
+                        Paid for university campus tours <strong>out of his own pocket</strong>.
+                    </p>
+                    <p>
+                        59 years old. Doctorate in Education. Family man. Animal lover. Three decades of service.
+                    </p>
+                    <p style="color: var(--green-primary); font-weight: 600;">
+                        Now he's entering the game.
+                    </p>
+
+                    <div class="credentials-list">
+                        <span class="credential">30 Years Teaching</span>
+                        <span class="credential">Doctorate in Education</span>
+                        <span class="credential">Varsity Coach</span>
+                        <span class="credential">Title I Schools</span>
+                        <span class="credential">59 Years Old</span>
+                        <span class="credential">Family Man</span>
+                    </div>
+                </div>
+
+                <div class="story-visual fade-in">
+                    <div class="hazmat-icon">
+                        <span class="text">Heisenberg</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item fade-in">
+                <div class="number">30</div>
+                <div class="label">Years Teaching</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="number">1000s</div>
+                <div class="label">Students Impacted</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="number">59</div>
+                <div class="label">Years of Life</div>
+            </div>
+            <div class="stat-item fade-in">
+                <div class="number">$1M</div>
+                <div class="label">Head Shave Target</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Buy -->
+    <section class="buy" id="buy">
+        <div class="buy-inner">
+            <h2 class="section-title">HOW TO <span>COOK</span></h2>
+            <p style="color: var(--text-muted);">New to the lab? Here's how to join the operation.</p>
+
+            <div class="buy-steps">
+                <div class="buy-step fade-in">
+                    <div class="step-number">01</div>
+                    <h3>Get a Wallet</h3>
+                    <p>Download <a href="https://phantom.app" target="_blank">Phantom Wallet</a> on your phone or browser. This is your lab equipment.</p>
+                </div>
+                <div class="buy-step fade-in">
+                    <div class="step-number">02</div>
+                    <h3>Buy Solana</h3>
+                    <p>Purchase SOL through Phantom, Coinbase, or any exchange. Transfer it to your wallet.</p>
+                </div>
+                <div class="buy-step fade-in">
+                    <div class="step-number">03</div>
+                    <h3>Copy the CA</h3>
+                    <p>Copy the Contract Address from the top of this page. This is $BB's chemical formula.</p>
+                </div>
+                <div class="buy-step fade-in">
+                    <div class="step-number">04</div>
+                    <h3>Start Cooking</h3>
+                    <p>Go to <a href="https://jup.ag" target="_blank">Jupiter</a> or <a href="https://raydium.io" target="_blank">Raydium</a>, paste the CA, swap SOL for $BB.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community -->
+    <section class="community" id="community">
+        <h2 class="section-title">JOIN THE <span>OPERATION</span></h2>
+        <p style="color: var(--text-muted);">Stay close. The cook is about to begin.</p>
+
+        <div class="social-links">
+            <a href="#" class="social-link" target="_blank">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                Follow on X
+            </a>
+            <a href="#" class="social-link" target="_blank">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+                </svg>
+                Pump.fun
+            </a>
+            <a href="#" class="social-link" target="_blank">
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 3h18v18H3V3zm16.5 16.5v-6.75h-2.25v6.75h2.25zm-7.5 0V9.75H9.75v9.75H12zm-4.5 0v-3.75H5.25v3.75H7.5z"/>
+                </svg>
+                DEXScreener
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>$BB - Breaking Bad © 2025 | The Transformation Begins</p>
+        <p class="disclaimer">
+            $BB is a community-driven memecoin with no intrinsic value or expectation of financial return. 
+            This is not financial advice. Always do your own research. 
+            Not affiliated with AMC, Sony Pictures Television, or the Breaking Bad franchise.
+        </p>
+    </footer>
+
+    <script>
+        // Copy CA
+        function copyCA() {
+            const ca = document.getElementById('contract-address').textContent;
+            if (ca !== 'TBA - LAUNCHING SOON') {
+                navigator.clipboard.writeText(ca);
+                document.getElementById('contract-address').textContent = 'COPIED!';
+                setTimeout(() => {
+                    document.getElementById('contract-address').textContent = ca;
+                }, 1500);
+            }
+        }
+
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
